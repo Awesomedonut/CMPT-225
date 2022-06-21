@@ -45,13 +45,15 @@ class Queue{
             std::cout << "empty\n";
         }else{
             nums--;
-            return arr[front++];
+            int temp = front;
+            front = (front + 1) % capacity;
+            return arr[temp];
         }
     
     }
 
     bool isFull(){
-        return (front == back && nums != 0);
+        return (nums >= capacity);
     }
 
     bool isEmpty(){
